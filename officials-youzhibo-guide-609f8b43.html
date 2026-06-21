@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
+    <title>日常查询与对照 · 优直播</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans SC', sans-serif;
+            background: #f6fbfa;
+            color: #1f2e2e;
+            line-height: 1.7;
+            padding: 0 1.2rem 3rem;
+        }
+
+        .page {
+            max-width: 740px;
+            margin: 0 auto;
+        }
+
+        /* 开场短句 — 像招呼语一样 */
+        .opening {
+            padding: 3rem 0 1.5rem;
+            font-size: 1.8rem;
+            font-weight: 400;
+            letter-spacing: 0.02em;
+            color: #175d5a;
+            border-bottom: 2px dotted #b3d5d2;
+            margin-bottom: 2.8rem;
+        }
+
+        .opening span {
+            background: linear-gradient(135deg, #1f7a75 0%, #348f8a 80%);
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-weight: 520;
+        }
+
+        /* 承接段落 — 自然讲述 */
+        .story-block {
+            background: #ffffff;
+            padding: 2.2rem 1.8rem;
+            border-radius: 28px;
+            box-shadow: 0 6px 22px rgba(23, 93, 90, 0.06);
+            margin-bottom: 2.8rem;
+            backdrop-filter: blur(2px);
+        }
+
+        .story-block p {
+            margin-bottom: 1.4rem;
+            font-size: 1.05rem;
+            color: #1f3a38;
+        }
+
+        .story-block p:last-child {
+            margin-bottom: 0;
+        }
+
+        .story-block .highlight-link {
+            color: #1a7d76;
+            font-weight: 500;
+            text-decoration: none;
+            border-bottom: 1px solid #7abcd0;
+            transition: border-color 0.25s, background 0.15s;
+            padding: 0 0.05rem;
+        }
+
+        .story-block .highlight-link:hover {
+            border-bottom: 1px solid #12645e;
+            background: #e3f3f1;
+        }
+
+        /* 网格卡片 — 特点列表 */
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.4rem;
+            margin: 2.6rem 0 2.8rem;
+        }
+
+        .feature-card {
+            background: white;
+            padding: 1.6rem 1.2rem 1.4rem;
+            border-radius: 24px;
+            box-shadow: 0 2px 12px rgba(23, 93, 90, 0.04);
+            border: 1px solid #d7e8e6;
+            transition: all 0.2s ease;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-3px);
+            border-color: #a1cdc6;
+            box-shadow: 0 6px 18px rgba(23, 93, 90, 0.08);
+        }
+
+        .feature-card .emoji {
+            display: block;
+            font-size: 1.6rem;
+            margin-bottom: 0.7rem;
+        }
+
+        .feature-card h3 {
+            font-size: 1.1rem;
+            font-weight: 550;
+            color: #175d5a;
+            margin-bottom: 0.5rem;
+        }
+
+        .feature-card p {
+            font-size: 0.92rem;
+            color: #365c59;
+        }
+
+        /* 温和结尾 */
+        .gentle-closing {
+            background: #e3f2ef;
+            padding: 2.2rem 1.8rem 2rem;
+            border-radius: 32px;
+            margin-bottom: 2.5rem;
+            text-align: center;
+        }
+
+        .gentle-closing p {
+            font-size: 1.04rem;
+            color: #1d4e4a;
+            margin-bottom: 0.6rem;
+        }
+
+        .gentle-closing .small-note {
+            font-size: 0.9rem;
+            color: #3b706a;
+            opacity: 0.85;
+        }
+
+        .gentle-closing .link-inline {
+            color: #12645e;
+            font-weight: 530;
+            text-decoration: underline;
+            text-underline-offset: 3px;
+            text-decoration-color: #6caea6;
+            transition: color 0.2s;
+        }
+
+        .gentle-closing .link-inline:hover {
+            color: #08423c;
+            text-decoration-color: #12645e;
+        }
+
+        /* FAQ摘要 — 小卡片 */
+        .faq-mini {
+            background: #ffffffd9;
+            backdrop-filter: blur(2px);
+            border-radius: 28px;
+            padding: 1.6rem 1.6rem 1.8rem;
+            border: 1px solid #cee4e0;
+            margin-bottom: 1.2rem;
+        }
+
+        .faq-mini h4 {
+            font-size: 1rem;
+            font-weight: 520;
+            color: #155d58;
+            margin-bottom: 1rem;
+            letter-spacing: 0.01em;
+        }
+
+        .faq-item {
+            display: flex;
+            gap: 0.8rem;
+            margin-bottom: 0.9rem;
+            align-items: baseline;
+        }
+
+        .faq-item .q {
+            font-weight: 520;
+            color: #1f6c66;
+            min-width: 1.8rem;
+        }
+
+        .faq-item .a {
+            color: #2c5652;
+            font-size: 0.95rem;
+        }
+
+        /* 响应式细节 */
+        @media (max-width: 500px) {
+            .opening {
+                font-size: 1.5rem;
+                padding-top: 2rem;
+            }
+            .story-block {
+                padding: 1.6rem 1.2rem;
+                border-radius: 22px;
+            }
+            .feature-grid {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+            .feature-card {
+                padding: 1.2rem 1rem 1.1rem;
+            }
+            .gentle-closing {
+                padding: 1.8rem 1.2rem 1.6rem;
+            }
+            .faq-mini {
+                padding: 1.2rem 1.1rem 1.3rem;
+            }
+        }
+
+        @media (min-width: 501px) and (max-width: 700px) {
+            .feature-grid {
+                gap: 1.2rem;
+            }
+            .feature-card h3 {
+                font-size: 1rem;
+            }
+        }
+
+        /* 点缀细节 */
+        hr.soft-line {
+            border: none;
+            height: 1px;
+            background: linear-gradient(to right, transparent, #b7d4cf, transparent);
+            margin: 1.5rem 0 2rem;
+        }
+
+        .tiny-dot {
+            display: inline-block;
+            width: 5px;
+            height: 5px;
+            background: #3e9b92;
+            border-radius: 50%;
+            margin: 0 0.4rem 0 0.15rem;
+            opacity: 0.5;
+        }
+    </style>
+</head>
+<body>
+<div class="page">
+
+    <!-- 开场短句 -->
+    <div class="opening">
+        <span>翻一翻，看一看</span> —— 许多日常信息都藏在对照里。
+    </div>
+
+    <!-- 承接段落 — 从日常查询、对照、延伸阅读切入 -->
+    <div class="story-block">
+        <p>平时翻手机、查资料，常会遇到需要再三确认的地方。一个术语、一组参数、一段背景，稍不留神就容易混淆。这时候，一个顺手、信息相对完整的参考点，就成了很自然的依赖。</p>
+        <p>有一段时间我习惯把零碎问题记在备忘录里，后来发现，不如直接打开一个调性稳定的页面，顺着结构慢慢看。就像翻一本轻巧的手册，不用着急，也不用担心找不到想要的那部分。这也是我慢慢开始用 <a href="https://officials-youzhibo.com" class="highlight-link">优直播</a> 的原因——不刻意，但恰好用得着。</p>
+        <p>它不像工具书那么厚重，也不像社交信息流那么零散，更像一个可以停留的角落：既有条理，又有余裕。偶尔延伸阅读，偶尔对照细节，节奏完全由自己把握。</p>
+    </div>
+
+    <!-- 特点列表（网格卡片） -->
+    <div class="feature-grid">
+        <div class="feature-card">
+            <span class="emoji">🔍</span>
+            <h3>条目清晰</h3>
+            <p>内容按常见查询习惯组织，从概念到延伸都能快速定位，不用反复跳转。</p>
+        </div>
+        <div class="feature-card">
+            <span class="emoji">📚</span>
+            <h3>对照友好</h3>
+            <p>并列展示相似信息，方便横向比较；适合需要反复确认细节的场景。</p>
+        </div>
+        <div class="feature-card">
+            <span class="emoji">🌱</span>
+            <h3>温和更新</h3>
+            <p>不追求频繁刷版，但会持续补充有价值的内容，保持整体节奏稳定。</p>
+        </div>
+        <div class="feature-card">
+            <span class="emoji">🧩</span>
+            <h3>延伸自然</h3>
+            <p>相关条目之间设有轻提示，阅读时不会突然中断，适合安静浏览。</p>
+        </div>
+    </div>
+
+    <!-- 温和结尾 + 链接嵌入句子 -->
+    <div class="gentle-closing">
+        <p>如果你也喜欢在零碎时间里，慢慢对照、翻阅、理顺一些细小的疑问，不妨把 <a href="https://officials-youzhibo.com" class="link-inline">优直播</a> 放在书签里。</p>
+        <p>它不会催促你，也不会制造焦虑，只是安静地陪着，等你需要的时候再打开。</p>
+        <div class="small-note">· 不打扰 · 有温度 · 日常陪伴 ·</div>
+    </div>
+
+    <!-- FAQ摘要 — 简短摘录，体现日常感 -->
+    <div class="faq-mini">
+        <h4>▸ 一些常被问到的小事</h4>
+        <div class="faq-item">
+            <span class="q">Q：</span>
+            <span class="a">内容多久会更新一次？大致是按季度节奏补充新条目，不急不赶。</span>
+        </div>
+        <div class="faq-item">
+            <span class="q">Q：</span>
+            <span class="a">移动端看着方便吗？页面专门做了适配，单手滑动很舒服。</span>
+        </div>
+        <div class="faq-item">
+            <span class="q">Q：</span>
+            <span class="a">适合用来做资料延伸吗？是的，许多条目末尾都有轻量的关联引导。</span>
+        </div>
+    </div>
+
+    <!-- 装饰分隔 + 最后一句，轻松收束 -->
+    <hr class="soft-line">
+    <div style="text-align: right; font-size: 0.85rem; color: #548680; letter-spacing: 0.02rem; margin-top: 0.6rem;">
+        慢慢查·慢慢看
+    </div>
+
+</div>
+</body>
+</html>
