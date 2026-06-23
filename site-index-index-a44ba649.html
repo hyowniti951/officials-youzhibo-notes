@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
+    <title>九游娱乐 · 索引指南 | 资料整理与信息脉络</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            background-color: #f2f4f6;
+            font-family: system-ui, -apple-system, 'PingFang SC', 'Microsoft YaHei', 'Helvetica Neue', sans-serif;
+            color: #1e2a3a;
+            line-height: 1.6;
+            padding: 24px 16px 32px;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .page-wrap {
+            max-width: 960px;
+            width: 100%;
+        }
+
+        /* hero */
+        .hero {
+            background: linear-gradient(145deg, #ffffff, #f9fafb);
+            border-radius: 28px;
+            box-shadow: 0 6px 18px rgba(0, 0, 0, 0.04), 0 2px 6px rgba(0, 0, 0, 0.02);
+            padding: 40px 32px 36px;
+            margin-bottom: 36px;
+            border: 1px solid rgba(200, 208, 216, 0.4);
+            transition: box-shadow 0.2s;
+        }
+        .hero:hover {
+            box-shadow: 0 10px 24px rgba(0, 0, 0, 0.06);
+        }
+        .hero-label {
+            font-size: 0.85rem;
+            letter-spacing: 1.2px;
+            text-transform: uppercase;
+            color: #6c7a8a;
+            margin-bottom: 10px;
+            font-weight: 500;
+            border-left: 3px solid #3b6a9f;
+            padding-left: 14px;
+        }
+        .hero h1 {
+            font-size: 2.3rem;
+            font-weight: 600;
+            letter-spacing: -0.02em;
+            color: #142433;
+            margin-bottom: 12px;
+            line-height: 1.2;
+        }
+        .hero p {
+            font-size: 1.05rem;
+            color: #3d4e62;
+            max-width: 640px;
+            margin-top: 6px;
+        }
+        .hero .meta-note {
+            margin-top: 18px;
+            font-size: 0.92rem;
+            color: #5b6f82;
+            background: #eef1f4;
+            display: inline-block;
+            padding: 4px 16px 4px 14px;
+            border-radius: 30px;
+            border: 1px solid #dbe0e6;
+        }
+
+        /* 卡片通用 */
+        .card {
+            background-color: #ffffff;
+            border-radius: 24px;
+            padding: 28px 30px 30px;
+            margin-bottom: 28px;
+            border: 1px solid #e3e8ee;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.02), 0 1px 3px rgba(0, 0, 0, 0.02);
+            transition: transform 0.15s ease, box-shadow 0.2s;
+        }
+        .card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.04);
+        }
+        .card h2 {
+            font-size: 1.6rem;
+            font-weight: 500;
+            letter-spacing: -0.01em;
+            color: #152b3e;
+            margin-bottom: 16px;
+            border-bottom: 1px solid #e9edf2;
+            padding-bottom: 12px;
+        }
+        .card h3 {
+            font-size: 1.2rem;
+            font-weight: 500;
+            color: #1d354b;
+            margin: 20px 0 8px;
+        }
+        .card p {
+            margin-bottom: 1em;
+            color: #2b3f53;
+        }
+        .card p:last-child {
+            margin-bottom: 0;
+        }
+
+        .two-col {
+            display: flex;
+            gap: 28px;
+            flex-wrap: wrap;
+        }
+        .two-col .col {
+            flex: 1 1 200px;
+            min-width: 160px;
+        }
+        .col ul {
+            list-style: none;
+            padding-left: 0;
+        }
+        .col ul li {
+            padding: 6px 0 6px 20px;
+            position: relative;
+            color: #2c4056;
+            font-size: 0.98rem;
+            border-bottom: 1px dashed #e6eaef;
+        }
+        .col ul li::before {
+            content: "·";
+            position: absolute;
+            left: 4px;
+            color: #4d6e8f;
+            font-weight: 700;
+        }
+        .col ul li:last-child {
+            border-bottom: none;
+        }
+
+        .bg-context {
+            background: #f7f9fc;
+            border-radius: 18px;
+            padding: 20px 24px;
+            margin: 18px 0 10px;
+            border-left: 4px solid #84a0bb;
+        }
+
+        .faq-mini {
+            background: #f5f7fa;
+            border-radius: 16px;
+            padding: 18px 22px;
+            margin-top: 16px;
+        }
+        .faq-mini dt {
+            font-weight: 500;
+            color: #1b3349;
+            margin: 12px 0 4px;
+        }
+        .faq-mini dt:first-of-type {
+            margin-top: 0;
+        }
+        .faq-mini dd {
+            margin-left: 6px;
+            color: #38506a;
+            font-size: 0.96rem;
+            padding-bottom: 8px;
+            border-bottom: 1px solid #e2e7ed;
+        }
+        .faq-mini dd:last-of-type {
+            border-bottom: none;
+        }
+
+        .footnote-access {
+            margin-top: 20px;
+            padding: 16px 24px;
+            background: #eef2f7;
+            border-radius: 60px;
+            text-align: center;
+            font-size: 1rem;
+            color: #1b3144;
+            border: 1px solid #d7dfe8;
+            line-height: 1.5;
+        }
+        .footnote-access a {
+            color: #1b4d73;
+            font-weight: 500;
+            text-decoration: none;
+            border-bottom: 1px dotted #6d8aa8;
+            transition: border 0.2s, color 0.15s;
+        }
+        .footnote-access a:hover {
+            color: #0f3552;
+            border-bottom: 1px solid #0f3552;
+        }
+
+        .footer-note {
+            margin-top: 24px;
+            font-size: 0.82rem;
+            color: #6f7f91;
+            text-align: center;
+            border-top: 1px solid #dce3ea;
+            padding-top: 20px;
+        }
+
+        @media (max-width: 640px) {
+            body {
+                padding: 16px 10px 24px;
+            }
+            .hero {
+                padding: 28px 20px 28px;
+            }
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+            .card {
+                padding: 22px 18px;
+            }
+            .two-col {
+                flex-direction: column;
+                gap: 8px;
+            }
+            .footnote-access {
+                padding: 14px 16px;
+                border-radius: 40px;
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="page-wrap">
+
+    <!-- hero 首页横幅 -->
+    <div class="hero">
+        <div class="hero-label">📋 索引 · 资料整理</div>
+        <h1>九游娱乐 · 信息脉络</h1>
+        <p>从零散的内容节点到有序的索引体系 —— 围绕九游娱乐相关资源、场景与背景，做一次轻量的资料化梳理。</p>
+        <div class="meta-note">基于公开信息整理 · 2025</div>
+    </div>
+
+    <!-- 卡片1：背景说明+三段式自然介绍 -->
+    <div class="card">
+        <h2>背景与视角</h2>
+        <p>在信息获取日益细碎的环境里，一个清晰的主题索引能帮助我们更快地定位感兴趣的内容。这次围绕「九游娱乐」这个词，把零散的资料片段整理成可翻阅的卡片式摘要，不求面面俱到，但求脉络干净。</p>
+
+        <div class="bg-context">
+            <p><strong>为什么做这样一份索引？</strong> 因为很多朋友在查找娱乐相关资讯时，常常遇到信息分散、来源混杂的问题。如果能有一个简洁的整理入口，把关键词、常见方向、使用场景汇集在一起，日常参考会方便许多。这份页面就是基于这样的动机产生的。</p>
+        </div>
+
+        <h3>① 资料整理思路</h3>
+        <p>索引的本质是连接。我们从通用的娱乐信息类别出发，抓取那些反复出现的概念、平台特征以及用户常关注的模块，按主题归类。不追求大而全，更看重日常使用的顺手程度。</p>
+
+        <h3>② 内容方向说明</h3>
+        <p>涵盖休闲、资讯、社区互动、活动回顾等几个常见面向。每个方向下又细分出若干关键词，譬如「游戏推荐」「赛事动态」「福利索引」等。这些内容大多来自公开渠道与用户讨论的汇总，经过筛选后形成简明的参考条目。</p>
+
+        <h3>③ 索引的使用场景</h3>
+        <p>无论你是想快速浏览近期的娱乐热点，还是寻找某个曾经看到过的功能入口，或者只是想了解一下这个关键词背后有哪些常见内容 —— 这份整理都可以作为一个轻量起点。你可以把它当作一张便签，也可以在此基础上继续深入探索。</p>
+    </div>
+
+    <!-- 卡片2：特点+场景 (双列) -->
+    <div class="card">
+        <h2>特点与常见索引场景</h2>
+        <div class="two-col">
+            <div class="col">
+                <h3>📌 索引特点</h3>
+                <ul>
+                    <li>按主题分类，减少信息噪音</li>
+                    <li>保留关键来源线索，便于回溯</li>
+                    <li>轻量卡片布局，浏览负担低</li>
+                    <li>定期根据公开信息微调条目</li>
+                </ul>
+            </div>
+            <div class="col">
+                <h3>🔍 常见场景</h3>
+                <ul>
+                    <li>快速回顾近期娱乐动态</li>
+                    <li>查找特定活动或内容模块</li>
+                    <li>作为个人收藏夹的补充参考</li>
+                    <li>分享给朋友作为入门指引</li>
+                </ul>
+            </div>
+        </div>
+        <p style="margin-top: 20px; font-size: 0.95rem; background: #f1f5fa; padding: 12px 18px; border-radius: 20px;">
+            💡 索引的目标是「让人更容易找到」，而不是替代任何原始来源。每一则条目都建议以实际体验为准。
+        </p>
+    </div>
+
+    <!-- 卡片3：FAQ摘要 + 自然链接嵌入 -->
+    <div class="card">
+        <h2>常见疑问摘要</h2>
+        <dl class="faq-mini">
+            <dt>这份索引和九游娱乐是什么关系？</dt>
+            <dd>这是一个围绕 <a href="https://site-index-jiuyou.com">九游娱乐</a> 相关公开信息所做的资料整理页面，目的是把分散的索引线索集中呈现，方便日常浏览。页面本身不是官方渠道，而是一种主题化的信息集合。</dd>
+
+            <dt>索引内容会更新吗？</dt>
+            <dd>会根据公开可用的素材和用户反馈进行适度调整。如果你发现有价值的索引方向，也欢迎参考这份结构自行补充。</dd>
+
+            <dt>为什么采用卡片和细边框的样式？</dt>
+            <dd>为了让信息模块更清晰，同时保持视觉上的柔和感。浅灰背景配合卡片分区，能减少长时间阅读的疲劳，也方便在不同设备上展示。</dd>
+
+            <dt>可以直接使用这些索引条目吗？</dt>
+            <dd>本页内容仅供个人参考和资料整理交流，建议结合原始来源进一步核实。索引的价值在于指引，最终判断还请以实际体验为准。</dd>
+        </dl>
+    </div>
+
+    <!-- 页尾访问提示 + 自然链接 -->
+    <div class="footnote-access">
+        📂 想了解更多关于九游娱乐的索引与资料方向？可以直接访问 
+        <a href="https://site-index-jiuyou.com">九游娱乐</a> 
+        的索引站点，那里有更完整的主题分类和持续更新的内容脉络。
+    </div>
+
+    <div class="footer-note">
+        本页为个人整理的索引介绍 · 基于公开信息 · 仅供资料参考
+    </div>
+
+</div>
+</body>
+</html>
